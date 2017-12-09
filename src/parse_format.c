@@ -31,7 +31,7 @@ void				add_more_flags(t_print *print, char *t, int i)
 
 }
 
-void				add_flag(t_print *print, char *t, int i)
+void				add_flags(t_print *print, char *t, int i)
 {
 	if (t[i] == '#' && i++)
 		print->flags[SHARP] = 1;
@@ -63,7 +63,7 @@ t_print				parse_format(char *t, int i)
 		}
 		else
 		{
-			add_flag(&print, t, i);
+			add_flags(&print, t, i);
 		}
 	}
 	print.conv = t[i];

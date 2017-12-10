@@ -1,4 +1,4 @@
-#******************************************************************************#
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
@@ -6,9 +6,9 @@
 #    By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/11 17:48:47 by rbaum             #+#    #+#              #
-#    Updated: 2015/06/12 22:24:47 by rbaum            ###   ########.fr        #
+#    Updated: 2017/12/10 19:26:04 by rbaum            ###   ########.fr        #
 #                                                                              #
-#******************************************************************************#
+# **************************************************************************** #
 
 CC = gcc
 
@@ -23,13 +23,28 @@ OBJ_PATH = ./obj/
 SRC_PATH = ./src/
 
 SRC_NAME = ft_printf.c \
+			ft_pad.c\
+			helpers.c\
 			parse_format.c\
+			ft_hex.c \
+			ft_int.c \
+			ft_long_int.c \
+			ft_pointer.c \
+			ft_string.c \
+			ft_unsigned_char.c \
+			ft_unsigned_decimal.c \
+			ft_unsigned_octal.c \
 			ft_putchar.c \
 			ft_putnbr.c \
 			ft_putstr.c \
 			ft_strlen.c \
 			ft_atoi.c \
+			ft_itoa.c \
+			ft_memalloc.c\
+			ft_strnew.c\
 			ft_isdigit.c\
+			ft_base.c\
+			print_memory.c\
 
 
 OBJ_NAME = $(SRC_NAME:.c=.o)

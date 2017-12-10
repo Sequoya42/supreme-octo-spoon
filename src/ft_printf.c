@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/12/10 14:30:08 by rbaum             #+#    #+#             */
+/*   Updated: 2017/12/10 19:18:27 by rbaum            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libftprintf.h"
 /*
    The z modifier, when applied to a d or i conversion, indicates that the argument
@@ -26,24 +38,23 @@
    z                 (see note)     size_t                (see note)
  */
 
-// static t_fptr				g_operator[CONV_LEN] =
-// {
-//      NULL,
-//      &ft_string,
-//      &ft_long_string, //  Treated as s with the l (ell) modifier
-//      &ft_pointer, // The void * pointer argument is printed in hexadecimal (as if by `%#x' or `%#lx')
-//      &ft_int,
-//      &ft_long_int,
-//      &ft_int,
-//      &ft_unsigned_octal,
-//      &ft_long_unsigned_octal,
-//      &ft_unsigned_decimal,
-//      &ft_long_unsigned_decimal,
-//      &ft_small_hex,
-//      &ft_big_hex,
-//      &ft_unsigned_char, // The int argument is converted to an unsigned char
-//      &ft_long_char // Treated as c with the l (ell) modifier,
-// };
+static t_fptr				g_operator[CONV_LEN] =
+{
+	&ft_string,
+	&ft_string, //  Treated as s with the l (ell) modifier
+	&ft_pointer, // The void * pointer argument is printed in hexadecimal (as if by `%#x' or `%#lx')
+	&ft_int,
+	// &ft_long_int,
+	// &ft_int,
+	// &ft_unsigned_octal,
+	// &ft_long_unsigned_octal,
+	// &ft_unsigned_decimal,
+	// &ft_long_unsigned_decimal,
+	// &ft_small_hex,
+	// &ft_big_hex,
+	// &ft_unsigned_char, // The int argument is converted to an unsigned char
+	// &ft_long_char // Treated as c with the l (ell) modifier,
+};
 
 void				ft_printf(char * restrict s, ...)
 {
@@ -67,7 +78,8 @@ void				ft_printf(char * restrict s, ...)
 		else
 		{
 			print = parse_format(t, i);
-			// g_operator(print.conv)(print, argp);
+			i = print.length;
+			g_operator[print.conv](print, argp);
 		}
 		i++;
 	}

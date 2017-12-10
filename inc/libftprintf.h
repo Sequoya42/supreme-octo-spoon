@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 14:30:52 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/10 19:38:59 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/10 21:46:13 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,10 @@ int							ft_atoi(const char *str);
 int							ft_isdigit(int c);
 char						*ft_strnew(size_t size);
 void						*ft_memalloc(size_t size);
-char						*ft_base(unsigned int n, int b);
+char						*ft_base(long n, int b);
 char						*print_adrr(int i, int base);
+void						print_hex_mem(unsigned char *addr, int maj);
+char						*ft_strjoin(char const *s1, char const *s2);
 
 
 
@@ -86,6 +88,8 @@ char						*print_adrr(int i, int base);
 void						ft_string(t_print print, va_list argp);
 void						ft_pointer(t_print print, va_list argp);
 void						ft_int(t_print print, va_list argp);
+void						ft_hex(t_print print, va_list argp);
+void						ft_octal(t_print print, va_list argp);
 
 
 /*

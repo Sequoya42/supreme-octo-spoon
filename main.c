@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 17:08:07 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/10 19:43:12 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/10 21:46:31 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,17 @@
 
 int main(void)
 {
-	char *str = "toto";
 
+	int str = 12;
+
+	// ft_putstr(s);
+	// ft_putchar('\n');
+
+	ft_printf("%o\n", str);
+	printf("%o\n", str);
 	// printf("%o\n", 3);
 	// printf("%s\n", str);
-	printf("%+d", 5);
+	// printf("%+d", 5);
 	// ft_printf("%p\n", str);
 	// printf("%s\n%s", "des bails", "dautre bails\n");
 	// printf("%ld\n", 12);

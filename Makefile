@@ -6,7 +6,7 @@
 #    By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/11 17:48:47 by rbaum             #+#    #+#              #
-#    Updated: 2017/12/10 19:26:04 by rbaum            ###   ########.fr        #
+#    Updated: 2017/12/10 21:45:42 by rbaum            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC_NAME = ft_printf.c \
 			helpers.c\
 			parse_format.c\
 			ft_hex.c \
+			ft_octal.c\
 			ft_int.c \
 			ft_long_int.c \
 			ft_pointer.c \
@@ -44,6 +45,7 @@ SRC_NAME = ft_printf.c \
 			ft_strnew.c\
 			ft_isdigit.c\
 			ft_base.c\
+			ft_strjoin.c\
 			print_memory.c\
 
 

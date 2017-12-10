@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pointer.c                                       :+:      :+:    :+:   */
+/*   ft_octal.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 19:16:24 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/10 21:40:43 by rbaum            ###   ########.fr       */
+/*   Created: 2017/12/10 21:45:44 by rbaum             #+#    #+#             */
+/*   Updated: 2017/12/10 21:46:04 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-/*
-** flags: [PADDING MINUS]
-*/
-void			ft_pointer(t_print print, va_list argp)
+void			ft_octal(t_print print, va_list argp)
 {
 	char		*value;
-	long r;
+	int r;
 
-	r = va_arg(argp, long);
-	value = ft_strjoin("0x", ft_base(r, 16));
+	r = va_arg(argp, unsigned int);
+	value = ft_base(r, 8);
 	ft_pad(value, print);
 }

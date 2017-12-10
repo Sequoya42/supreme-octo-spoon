@@ -6,13 +6,13 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/17 21:59:40 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/10 19:25:48 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/10 21:40:10 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char							*ft_base(unsigned int n, int b)
+char							*ft_base(long n, int b)
 {
 	char						*ret;
 	char						*r;

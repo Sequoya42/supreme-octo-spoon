@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 00:04:52 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/11 01:48:52 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/11 17:53:22 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 # define CONVS		"sSpdDioOuUxXcC"
 # define FLAGS		"#0+-. hljz123456789"
 
-# define IS_SET(x)	(print.flags[x] != -1)
+# define TEST			-12
+# define ARG(x)			va_arg(argp, x)
+# define IS_SET(x)		(print.flags[x] != -1)
 # define PRE			print.flags[PRECISION]
 # define DIR			print.flags[MINUS]
 # define PAD			print.flags[PADDING]

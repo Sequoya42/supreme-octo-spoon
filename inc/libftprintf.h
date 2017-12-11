@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 14:30:52 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/11 01:58:21 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/11 17:59:32 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ struct						s_print
 
 typedef void				(*t_fptr)(t_print print, va_list argp);
 
-void						ft_printf(char *restrict s, ...);
+int							ft_printf(char *restrict s, ...);
 void						ft_pad(char *stuff, t_print print);
 
 /*
@@ -76,6 +76,7 @@ void						ft_octal(t_print print, va_list argp);
 void						ft_exit(char *s);
 int							is_in(char c, char *str);
 int							find_index(char *s, char c);
+int							counter(int n);
 
 
 /*

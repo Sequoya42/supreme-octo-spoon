@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 17:08:07 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/11 01:59:12 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/11 18:04:27 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,12 @@ int		main(void)
         ft_putchar('\n');
  */
 // ******** ********    ******** ********
-	int n = -12;
 
 	// printf("%d\n", n);
-	printf("%d\n", n);
-	printf("%u\n", n);
+	int i =		printf("toto et %+d\n", TEST);
+	int j =		ft_printf("toto et %+d\n", TEST);
+
+	printf("VALUE OF I : %d\nVALUE OF J : %d\n", i, j);
 	// ft_printf("%u\n", -12);
 	// unsigned long long toto = 9171919191929229923;
 	// unsigned int nik = -12;

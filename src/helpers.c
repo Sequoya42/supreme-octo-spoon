@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 19:13:19 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/10 19:13:43 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/11 18:02:07 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,13 @@ int find_index(char *s, char c)
 
 	while (s[i] != c)
 		i++;
+	return i;
+}
+
+int				counter(int n)
+{
+	static int i = 0;
+
+	i += n;
 	return i;
 }

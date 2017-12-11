@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 14:30:08 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/10 23:15:55 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/11 18:05:23 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static t_fptr				g_operator[CONV_LEN] =
 	&ft_int, //C // &ft_long_char // Treated as c with the l (ell) modifier,
 };
 
-void				ft_printf(char * restrict s, ...)
+int				ft_printf(char * restrict s, ...)
 {
 	int				i;
 	char			*t;
@@ -68,13 +68,10 @@ void				ft_printf(char * restrict s, ...)
 	va_start(argp, s);
 	while (t[i])
 	{
-		if (t[i] != '%')
+		if (t[i] != '%' && counter(1))
 			ft_putchar(t[i]);
-		else if (t[i] == '%' && t[i + 1] == '%')
-		{
-			ft_putchar(t[i]);
-			i++;
-		}
+		else if (t[i] == '%' && t[i + 1] == '%' && counter(1))
+			ft_putchar(t[i++]);
 		else
 		{
 			print = parse_format(t, i);
@@ -84,4 +81,5 @@ void				ft_printf(char * restrict s, ...)
 		i++;
 	}
 	va_end(argp);
+	return (counter(0));
 }

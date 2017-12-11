@@ -6,13 +6,13 @@
 #    By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/11 17:48:47 by rbaum             #+#    #+#              #
-#    Updated: 2017/12/10 21:45:42 by rbaum            ###   ########.fr        #
+#    Updated: 2017/12/10 23:33:12 by rbaum            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAG = -Wall -Werror -Wextra
+CFLAG = -Wall -Werror -Wextra 
 
 NAME = libftprintf.a
 
@@ -29,12 +29,8 @@ SRC_NAME = ft_printf.c \
 			ft_hex.c \
 			ft_octal.c\
 			ft_int.c \
-			ft_long_int.c \
 			ft_pointer.c \
 			ft_string.c \
-			ft_unsigned_char.c \
-			ft_unsigned_decimal.c \
-			ft_unsigned_octal.c \
 			ft_putchar.c \
 			ft_putnbr.c \
 			ft_putstr.c \

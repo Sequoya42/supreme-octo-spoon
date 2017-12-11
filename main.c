@@ -6,42 +6,50 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 17:08:07 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/10 21:46:31 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/11 01:59:12 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdio.h>
-// #include <xlocale.h>
-// #include <wchar.h>
-// #include <wctype.h>
 
-int main(void)
+int		main(void)
 {
+/*	char u1 = 0xc3;
+        char u2 = 0xa9;
+        int c = 0xc3a9;
+        static wchar_t nik[] = {0xc3, 0xa9, '\0', '\0'};
+        static char tot[3];
+        tot[0] = u1;
+        tot[1] = u2;
+        tot[2] = '\0';
+        ft_putstr(tot);
+        char *ni = ft_base(c, 16);
+        ft_putstr("école");
+        // write(1, (char *)&c, 2);
 
-	int str = 12;
+        ft_putchar(u1);
+        ft_putchar(u2);
+        ft_putchar('\n');
+ */
+// ******** ********    ******** ********
+	int n = -12;
 
-	// ft_putstr(s);
-	// ft_putchar('\n');
-
-	ft_printf("%o\n", str);
-	printf("%o\n", str);
-	// printf("%o\n", 3);
-	// printf("%s\n", str);
-	// printf("%+d", 5);
-	// ft_printf("%p\n", str);
-	// printf("%s\n%s", "des bails", "dautre bails\n");
-	// printf("%ld\n", 12);
-	// ft_printf("%s:\t %-20.2s\n", "%-20.2s",  "Des bailsF");
-	// printf("%s:\t %20.2s\n", "%20.2s",  "des bails");
-	// //
-	// ft_printf("%s:\t %20.2s\n", "%20.2s",  "Des bailsF");
+	// printf("%d\n", n);
+	printf("%d\n", n);
+	printf("%u\n", n);
+	// ft_printf("%u\n", -12);
+	// unsigned long long toto = 9171919191929229923;
+	// unsigned int nik = -12;
 	//
-	// ft_printf("%s: %-20.2s\n", "%-20.2s\n",  "des bails");
-	// ft_printf("%s: %20.2s\n", "%20.2s\n",  "des bails");
-	// int i = ft_atoi("23etdesbails");
-	// printf("%S", L"ابتثجحخدذرزسشصضطظعغفقكلمنهوي");
-	// printf("%d\n", i);
-	// ft_printf("Truc\n");
-	// ft_printf("Stuff\n");
+	// #include <limits.h>
+	// printf("%u\n", nik);
+	// printf("%llo\n", toto);
+	// ft_printf("%llo\n", toto);
+	// ft_printf("%o\n", 1873);
+	// printf("%lo\n", 19191919192029229);
+	// ft_printf("%lo\n", 19191919192029229);
+	// ft_putstr((char*)nik);
+	// printf("%S\n", nik);
+	return (0);
 }

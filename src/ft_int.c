@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 18:51:23 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/10 19:43:39 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/11 01:58:49 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,9 @@ void			ft_int(t_print print, va_list argp)
 {
 	char		*value;
 
-	value = ft_itoa(va_arg(argp, int));
+	if (print.conv == u || print.conv == U)
+		value = ft_unsigned_itoa(va_arg(argp, unsigned int));
+	else
+		value = ft_itoa(va_arg(argp, int));
 	ft_pad(value, print);
-	// int i = va_arg(argp, int);
-	//
-	// ft_putnbr(i);
-	// ft_putchar('\n');
-	// ft_pad(value, print);
 }

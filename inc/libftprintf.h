@@ -6,13 +6,14 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 14:30:52 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/10 21:46:13 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/11 01:58:21 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 
+# include "ft_type.h"
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
@@ -20,32 +21,7 @@
 # include <sys/uio.h>
 # include <stdarg.h>
 
-# define CONVS	"sSpdDioOuUxXcC"
-# define FLAGS	"#0+-. hljz123456789"
-
-#define PRE		print.flags[PRECISION]
-#define DIR		print.flags[MINUS]
-#define PAD		print.flags[PADDING]
-#define BEFORE	-1
-#define AFTER	1
-
-typedef enum e_conv			t_conv;
-typedef enum e_flag			t_flag;
 typedef	struct s_print		t_print;
-
-enum						e_conv
-{
-	s, S, p, d, D, i, o, O, u, U, x, X, c, C,
-	CONV_LEN
-};
-
-enum						e_flag
-{
-	SHARP, ZERO, MINUS, PLUS, SPACE,
-	HH, H, L, LL, J, Z,
-	PRECISION, PADDING,
-	FLAG_LEN
-};
 
 struct						s_print
 {
@@ -64,17 +40,18 @@ void						ft_pad(char *stuff, t_print print);
 /*
 ** Library functions
 */
-char						*ft_itoa(int n);
-char						*ft_itoa(int n);
+char						*ft_itoa(long n);
+char						*ft_unsigned_itoa(unsigned long n);
 void						ft_putchar(char c);
 void						ft_putnbr(int n);
+void						ft_un_putnbr(unsigned int nb);
 void						ft_putstr(char const *s);
 size_t						ft_strlen(const char *s);
 int							ft_atoi(const char *str);
 int							ft_isdigit(int c);
 char						*ft_strnew(size_t size);
 void						*ft_memalloc(size_t size);
-char						*ft_base(long n, int b);
+char						*ft_base(long long n, int b);
 char						*print_adrr(int i, int base);
 void						print_hex_mem(unsigned char *addr, int maj);
 char						*ft_strjoin(char const *s1, char const *s2);

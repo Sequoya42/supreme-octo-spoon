@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 14:30:08 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/10 21:45:00 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/10 23:15:55 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,20 @@
 
 static t_fptr				g_operator[CONV_LEN] =
 {
-	&ft_string,
-	&ft_string, //  Treated as s with the l (ell) modifier
-	&ft_pointer, // The void * pointer argument is printed in hexadecimal (as if by `%#x' or `%#lx')
-	&ft_int,
-	&ft_int, //long_int
-	&ft_int,
-	&ft_octal, // &ft_unsigned_octal,
-	&ft_int, // &ft_long_unsigned_octal,
-	&ft_int, // &ft_unsigned_decimal,
-	&ft_int, // &ft_long_unsigned_decimal,
-	&ft_hex, // &ft_small_hex,
-	&ft_hex, // &ft_big_hex,
-	&ft_int, // &ft_unsigned_char, // The int argument is converted to an unsigned char
-	&ft_int, // &ft_long_char // Treated as c with the l (ell) modifier,
+	&ft_string, //s
+	&ft_string, //S //  Treated as s with the l (ell) modifier
+	&ft_pointer, //p // The void * pointer argument is printed in hexadecimal (as if by `%#x' or `%#lx')
+	&ft_int,// d
+	&ft_int, // D //long_int
+	&ft_int, // i
+	&ft_octal, //o //  &ft_unsigned_octal,
+	&ft_octal, //O //  &ft_long_unsigned_octal,
+	&ft_int, //u // &ft_unsigned_decimal,
+	&ft_int, //U // &ft_long_unsigned_decimal,
+	&ft_hex, //x //  &ft_small_hex,
+	&ft_hex, //X // &ft_big_hex,
+	&ft_int, //c // &ft_unsigned_char, // The int argument is converted to an unsigned char
+	&ft_int, //C // &ft_long_char // Treated as c with the l (ell) modifier,
 };
 
 void				ft_printf(char * restrict s, ...)

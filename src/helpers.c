@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 19:13:19 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/11 18:02:07 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/12 16:41:55 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void				ft_exit(char *s)
 {
 	ft_putstr(s);
+	ft_putchar('\n');
 	exit(0);
 }
 
@@ -33,19 +34,23 @@ int					is_in(char c, char *str)
 	return (0);
 }
 
-int find_index(char *s, char c)
+int					find_index(char *s, char c)
 {
-	int i = 0;
+	int			i;
 
+	i = 0;
 	while (s[i] != c)
+	{
+
 		i++;
-	return i;
+	}
+	return (i);
 }
 
-int				counter(int n)
+int					counter(int n)
 {
 	static int i = 0;
 
 	i += n;
-	return i;
+	return (i);
 }

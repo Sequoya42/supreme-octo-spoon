@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 14:34:00 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/10 19:13:44 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/12 16:55:08 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int					add_flags(t_print *print, char *t, int i)
 	return (add_more_flags(print, t, i));
 }
 
-
 void				clear_flags(t_print *print)
 {
 	int				i;
@@ -72,12 +71,13 @@ t_print				parse_format(char *t, int i)
 	t_print			print;
 
 	clear_flags(&print);
-	while (t[i] && !is_in(t[++i], CONVS))
+	while (t[++i] && !is_in(t[i], CONVS))
 	{
 		if (!is_in(t[i], FLAGS))
-			ft_exit("Unknown flag\n");
+			ft_exit("Unknown flag");
 		else
 			i = add_flags(&print, t, i) - 1;
+		// i++;
 	}
 	if (is_in(t[i], CONVS))
 	{
@@ -85,6 +85,6 @@ t_print				parse_format(char *t, int i)
 		print.length = i;
 	}
 	else
-		ft_exit("Unknown conv\n");
+		ft_exit("Unknown conv");
 	return (print);
 }

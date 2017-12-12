@@ -6,13 +6,13 @@
 #    By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/11 17:48:47 by rbaum             #+#    #+#              #
-#    Updated: 2017/12/10 23:33:12 by rbaum            ###   ########.fr        #
+#    Updated: 2017/12/12 14:13:56 by rbaum            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAG = -Wall -Werror -Wextra 
+CFLAG = -Wall -Werror -Wextra
 
 NAME = libftprintf.a
 
@@ -63,7 +63,7 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 			@$(CC) $(CFLAG) -I$(INC_PATH) -o $@ -c $<
 
 clean:
-			@rm -rf $(OBJ)
+			rm -rf $(OBJ_PATH)
 			@echo "clean done !"
 
 fclean:		clean

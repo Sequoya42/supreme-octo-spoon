@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 19:45:53 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/10 21:31:58 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/12 14:35:30 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ char		*ft_strcat(char *s1, const char *s2)
 	return (s1);
 }
 
-char	*ft_strcpy(char *dest, const char *src)
+char		*ft_strcpy(char *dest, const char *src)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (src[i])
@@ -44,7 +44,7 @@ char	*ft_strcpy(char *dest, const char *src)
 	return (dest);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
 	int		l;
 	char	*str;

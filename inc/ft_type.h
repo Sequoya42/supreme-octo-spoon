@@ -6,14 +6,14 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 00:04:52 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/11 17:53:22 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/12 15:55:45 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_TYPE_H
 # define FT_TYPE_H
 
-# define CONVS		"sSpdDioOuUxXcC"
+# define CONVS		"sSpdDioOuUxXcC%"
 # define FLAGS		"#0+-. hljz123456789"
 
 # define TEST			-12
@@ -32,7 +32,7 @@ typedef struct s_change		t_change;
 
 enum						e_conv
 {
-	s, S, p, d, D, i, o, O, u, U, x, X, c, C,
+	s, S, p, d, D, i, o, O, u, U, x, X, c, C, M,
 	CONV_LEN
 };
 
@@ -53,18 +53,5 @@ enum						e_type
 	FT_UNSIGNED_CHAR,
 	FT_UNSIGNED_LONG_CHAR,
 };
-
-// struct						s_change
-// {
-// 	t_type					type;
-// 	union {
-// 		int 				i;
-// 		unsigned int		ui;
-// 		unsigned long		ul;
-// 		unsigned long long	ull;
-// 		unsigned char		uc;
-// 		unsigned long char	ulc;
-// 	}
-// };
 
 #endif

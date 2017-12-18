@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 14:30:52 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/18 14:18:58 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/18 15:17:58 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ struct						s_print
 typedef void				(*t_fptr)(t_print print, va_list argp);
 
 int							ft_printf(char *restrict s, ...);
-void						ft_pad(char *stuff, t_print print, char fill);
+void						ft_pad(char *stuff, t_print print);
 void						ft_pad_num(char *stuff, t_print print);
 
 /*

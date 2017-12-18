@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 00:04:52 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/18 14:13:10 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/18 15:19:32 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 # define FT_TYPE_H
 
 # define CONVS		"sSpdDioOuUxXcC%"
+# define NUMS		"dDiuU"
 # define FLAGS		"#0+-. hljz123456789"
 
-# define FILL			IS_SET(ZERO) ? '0' : ' '
+# define FILL			IS_SET(ZERO) || is_in(print.conv, NUMS) ? '0' : ' '
 # define TEST			-12
 # define ARG(x)			va_arg(argp, x)
 # define IS_SET(x)		(print.flags[x] != -1)

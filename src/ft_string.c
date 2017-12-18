@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 14:30:49 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/12 17:17:45 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/18 14:13:40 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void			ft_string(t_print print, va_list argp)
 	char		*value;
 
 	value = va_arg(argp, char *);
-	ft_pad(value, print);
+	ft_pad(value, print, FILL);
 }

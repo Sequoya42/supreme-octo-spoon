@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 14:30:52 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/12 18:51:06 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/18 14:18:58 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ struct						s_print
 typedef void				(*t_fptr)(t_print print, va_list argp);
 
 int							ft_printf(char *restrict s, ...);
-void						ft_pad(char *stuff, t_print print);
+void						ft_pad(char *stuff, t_print print, char fill);
 void						ft_pad_num(char *stuff, t_print print);
 
 /*
@@ -52,8 +52,10 @@ int							ft_atoi(const char *str);
 int							ft_isdigit(int c);
 char						*ft_strnew(size_t size);
 void						*ft_memalloc(size_t size);
-char						*ft_base(unsigned int, int b, char type);
-char						*ft_long_base(unsigned long long n, int b, char type);
+char						*ft_base(unsigned int n, int b, char type);
+char						*ft_long_base(unsigned long n, int b, char t);
+char						*ft_llong_base(unsigned long long n, int b, char type);
+char						*ft_uint_base(uintmax_t n, int b, char type);
 char						*print_adrr(int i, int base);
 void						print_hex_mem(unsigned char *addr, int maj);
 char						*ft_strjoin(char const *s1, char const *s2);

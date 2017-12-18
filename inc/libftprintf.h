@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 14:30:52 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/18 15:17:58 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/18 21:54:08 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void						ft_pointer(t_print print, va_list argp);
 void						ft_int(t_print print, va_list argp);
 void						ft_hex(t_print print, va_list argp);
 void						ft_octal(t_print print, va_list argp);
+void						ft_char(t_print print, va_list argp);
 
 /*
 ** helpers

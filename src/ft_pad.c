@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 17:54:19 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/18 21:51:25 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/18 22:13:01 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,11 @@ void			ft_pad(char *value, t_print print)
 {
 	int			l;
 	int			i;
-	int			c;
 
 	i = 0;
-	c = 0;
 	l = ft_strlen(value);
 	l = (PRE != -1 && PRE < l) ? PRE : l;
+	l = l == 0 && print.conv == c && value[0] == 0 ? 1 : l;
 	if (DIR == BEFORE && PAD > l)
 		ft_add_space(PAD - l, FILL, print);
 	counter(l - i);
@@ -70,10 +69,8 @@ void			ft_pad_num(char *value, t_print print)
 {
 	int			l;
 	int			i;
-	int			c;
 
 	i = 0;
-	c = 0;
 	if (PRE == 0 && print.conv != M)
 	{
 		return ft_add_space(PAD != -1 ? PAD : 0, ' ', print);

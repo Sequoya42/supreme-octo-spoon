@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 15:47:24 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/18 18:18:01 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/18 21:50:36 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
    hex stuff first 42filechecker*/
 int			main(void)
 {
-	ft_printf("%#08x\n", 42);
-	printf("%#08x\n", 42);
+	ft_printf("@moulitest: %#.x %#.0x\n", 0, 0);
+	printf("@moulitest: %#.x %#.0x\n", 0, 0);
 }

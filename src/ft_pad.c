@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 17:54:19 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/18 22:13:01 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/18 22:44:18 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,23 +65,37 @@ void			ft_pad(char *value, t_print print)
 		ft_add_space(PAD - l, FILL, print);
 }
 
+char			*choose_prepend(t_print print, char *value)
+{
+	if (print.conv == x)
+		value = ft_strjoin("0x", value);
+	else if (print.conv == X)
+		value = ft_strjoin("0X", value);
+	else if (print.conv == o || print.conv == O)
+		value = ft_strjoin("0", value);
+	return (value);
+}
+
 void			ft_pad_num(char *value, t_print print)
 {
 	int			l;
 	int			i;
 
 	i = 0;
-	if (PRE == 0 && print.conv != M)
+	if (FILL == '0' && (value[0] == '+' || value[0] == '-'))
 	{
-		return ft_add_space(PAD != -1 ? PAD : 0, ' ', print);
+		counter(1);
+		ft_putchar(value[0]);
+		i = 1;
 	}
+	if (PRE == 0 && print.conv != M)
+		return ft_add_space(PAD != -1 ? PAD : 0, ' ', print);
 	l = ft_strlen(value);
 	if (PRE > l && print.conv != M)
 		value = fill_zero(value, PRE, l, print);
 	print.str = value;
-	if (IS_SET(SHARP) && ft_atoi(value) != 0 && FILL != '0'
-	    &&  (print.conv == x || print.conv == X))
-		value = ft_strjoin(print.conv == x ? "0x" : "0X", value);
+	if (IS_SET(SHARP) && ft_atoi(value) != 0 && FILL != '0')
+		value = choose_prepend(print, value);
 	l = ft_strlen(value);
 	if (DIR == BEFORE && PAD > l)
 		ft_add_space(PAD - l, FILL, print);

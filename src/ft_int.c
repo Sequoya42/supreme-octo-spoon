@@ -6,14 +6,14 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 18:51:23 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/18 15:18:10 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/18 22:35:26 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
 /*
-** Flags [ PADDING PRECISION MINUS PLUS l ll]
+** Flags [ SHARP PADDING PRECISION MINUS PLUS l ll]
 */
 
 static char		*choose_type(t_print print, va_list argp)
@@ -41,7 +41,11 @@ void			ft_int(t_print print, va_list argp)
 		value = "%";
 	else
 		value = choose_type(print, argp);
-	if (IS_SET(PLUS) && print.conv == d && ft_atoi(value) > 0)
+	if (IS_SET(PLUS) && (print.conv == d || print.conv == i)
+	    && ft_atoi(value) >= 0)
 		value = ft_strjoin("+", value);
+	else if (value[0] != '-' && IS_SET(SPACE) &&
+		 (print.conv == d || print.conv == i))
+		value = ft_strjoin(" ", value);
 	ft_pad_num(value, print);
 }

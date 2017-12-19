@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 17:54:19 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/19 15:32:20 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/19 15:48:21 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,19 +93,6 @@ char			*choose_prepend(t_print print, char *value)
 	return (value);
 }
 
-int				choose_start(t_print print, char **value)
-{
-	if ((PRE > (int)ft_strlen(*value) || FILL == '0') &&
-	    (*value[0] == '+' || *value[0] == '-'))
-	{
-		counter(1);
-		ft_putchar(*value[0]);
-		return (1);
-	}
-	*value = *value + 1;
-	return (0);
-}
-
 void			ft_pad_num(char *value, t_print print)
 {
 	int			l;
@@ -114,9 +101,11 @@ void			ft_pad_num(char *value, t_print print)
 
 	i = 0;
 	k = 0;
-	// i = choose_start(print, &value);
+	if (PRE != -1)
+		print.flags[ZERO] = -1;
 	if (PRE == 0 && ((print.conv == x || print.conv == X)
-			 || (print.conv == o && !IS_SET(SHARP))))
+			 || (print.conv == o && !IS_SET(SHARP)) ||
+			 (print.conv == d && ft_atoi(value) == 0)))
 		return (void)ft_add_space(PAD != -1 ? PAD : 0, ' ', print);
 	l = ft_strlen(value);
 	if (PRE >= l && print.conv != M)

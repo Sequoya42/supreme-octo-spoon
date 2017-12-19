@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 18:51:23 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/19 12:13:48 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/19 15:02:39 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void			ft_int(t_print print, va_list argp)
 	if (IS_SET(PLUS) && (print.conv == d || print.conv == i)
 	    && ft_atoi(value) >= 0)
 		value = ft_strjoin("+", value);
-	else if (value[0] != '-' && IS_SET(SPACE) &&
+	else if (value[0] != '-' && IS_SET(SPACE) && PRE < (int)ft_strlen(value) &&
 		 (print.conv == d || print.conv == i))
 		value = ft_strjoin(" ", value);
 	ft_pad_num(value, print);

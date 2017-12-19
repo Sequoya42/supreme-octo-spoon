@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 15:47:24 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/19 12:15:32 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/19 15:07:42 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
    hex stuff first 42filechecker*/
 int			main(void)
 {
-	ft_printf("%4.15d\n", 42);
-	printf("%4.15d\n", 42);
+	ft_printf("%0+5d\n", 42);
+	printf("%0+5d\n", 42);
 }

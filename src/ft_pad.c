@@ -6,18 +6,27 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 17:54:19 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/19 12:26:57 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/19 15:32:20 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void			ft_add_space(int i, char fill, t_print print)
+int			ft_add_space(int i, char fill, t_print print)
 {
 	int			j;
+	int			k;
 
 	j = -1;
+	k = 0;
 	counter(i);
+	if (print.conv == d && fill == '0' &&
+	    (print.str[0] == '+' || print.str[0] == '-'))
+	{
+		ft_putchar(print.str[0]);
+		k = 1;
+		// i -= 1;
+	}
 	while (++j < i)
 	{
 		if (j == 1 && FILL == '0' && (print.conv == x || print.conv == X)
@@ -26,10 +35,11 @@ void			ft_add_space(int i, char fill, t_print print)
 		else
 			ft_putchar(fill);
 	}
+	return (k);
 }
 
 
-char			*fill_zero(char *value, int k, int l, t_print print)
+char			*fill_zero(char *value, int pre, int l, t_print print)
 {
 	(void)print;
 	char		*s;
@@ -37,8 +47,15 @@ char			*fill_zero(char *value, int k, int l, t_print print)
 	int			j;
 
 	i = 0;
-	j = k - l;
-	s = ft_memalloc(k + 1);
+	s = ft_memalloc(pre + 1);
+	if (value[0] == '+' || value[0] == '-')
+	{
+		s[0] = value[0];
+		value += 1;
+		i = 1;
+		l -= 2;
+	}
+	j = pre - l;
 	while (i < j)
 		s[i++] = '0';
 	j = 0;
@@ -76,15 +93,16 @@ char			*choose_prepend(t_print print, char *value)
 	return (value);
 }
 
-int				choose_start(t_print print, char *value)
+int				choose_start(t_print print, char **value)
 {
-	if ((PRE > (int)ft_strlen(value) || FILL == '0') &&
-	    (value[0] == '+' || value[0] == '-'))
+	if ((PRE > (int)ft_strlen(*value) || FILL == '0') &&
+	    (*value[0] == '+' || *value[0] == '-'))
 	{
 		counter(1);
-		ft_putchar(value[0]);
+		ft_putchar(*value[0]);
 		return (1);
 	}
+	*value = *value + 1;
 	return (0);
 }
 
@@ -92,24 +110,28 @@ void			ft_pad_num(char *value, t_print print)
 {
 	int			l;
 	int			i;
+	int			k;
 
-	i = choose_start(print, value);
+	i = 0;
+	k = 0;
+	// i = choose_start(print, &value);
 	if (PRE == 0 && ((print.conv == x || print.conv == X)
 			 || (print.conv == o && !IS_SET(SHARP))))
-		return ft_add_space(PAD != -1 ? PAD : 0, ' ', print);
+		return (void)ft_add_space(PAD != -1 ? PAD : 0, ' ', print);
 	l = ft_strlen(value);
-	if (PRE > l && print.conv != M)
+	if (PRE >= l && print.conv != M)
 		value = fill_zero(value, PRE, l, print);
 	print.str = value;
 	if (IS_SET(SHARP) && ft_atoi(value) != 0 && FILL != '0')
 		value = choose_prepend(print, value);
-	l = ft_strlen(value);
+	l = ft_strlen(value) - i;
 	if (DIR == BEFORE && PAD > l)
-		ft_add_space(PAD - l, FILL, print);
+		k = ft_add_space(PAD - l, FILL, print);
 	counter(l - i);
+	if (k == 1)
+		i++;
 	while (i < l)
 		ft_putchar(value[i++]);
-	i++;
 	if (DIR == AFTER && PAD > l)
 		ft_add_space(PAD - l, FILL, print);
 }

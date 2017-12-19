@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 18:51:23 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/18 22:35:26 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/19 12:13:48 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,22 @@ static char		*choose_type(t_print print, va_list argp)
 		value = ft_unsigned_itoa(ARG(unsigned long));
 	else if (print.conv == u)
 		value = ft_unsigned_itoa(ARG(unsigned int));
-	else if (print.conv == d && IS_SET(L))
+	else if ((print.conv == d || print.conv == i) && IS_SET(L))
 		value = ft_itoa(ARG(long));
-	else if (print.conv == d && IS_SET(LL))
+	else if ((print.conv == d || print.conv == i) && IS_SET(LL))
 		value = ft_itoa(ARG(long long));
+	else if ((print.conv == d || print.conv == i) && IS_SET(H))
+		value = ft_itoa((short)ARG(int));
+	else if ((print.conv == d || print.conv == i) && IS_SET(HH))
+		value = ft_itoa((signed char)ARG(int));
+	else if ((print.conv == d || print.conv == i) && IS_SET(J))
+		value = ft_itoa((intmax_t)ARG(intmax_t));
+	else if ((print.conv == d || print.conv == i) && IS_SET(Z))
+		value = ft_itoa((long)ARG(int*));
+	else if ((print.conv == u) && IS_SET(H))
+		value = ft_unsigned_itoa((unsigned short)ARG(int));
+	else if ((print.conv == u) && IS_SET(HH))
+		value = ft_unsigned_itoa((unsigned char)ARG(int));
 	else
 		value = ft_itoa(ARG(int));
 	return (value);

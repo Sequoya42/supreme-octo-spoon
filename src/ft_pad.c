@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 17:54:19 by rbaum             #+#    #+#             */
-/*   Updated: 2017/12/18 22:44:18 by rbaum            ###   ########.fr       */
+/*   Updated: 2017/12/19 12:26:57 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char			*fill_zero(char *value, int k, int l, t_print print)
 
 	i = 0;
 	j = k - l;
-	s = ft_memalloc(k);
+	s = ft_memalloc(k + 1);
 	while (i < j)
 		s[i++] = '0';
 	j = 0;
@@ -76,19 +76,26 @@ char			*choose_prepend(t_print print, char *value)
 	return (value);
 }
 
+int				choose_start(t_print print, char *value)
+{
+	if ((PRE > (int)ft_strlen(value) || FILL == '0') &&
+	    (value[0] == '+' || value[0] == '-'))
+	{
+		counter(1);
+		ft_putchar(value[0]);
+		return (1);
+	}
+	return (0);
+}
+
 void			ft_pad_num(char *value, t_print print)
 {
 	int			l;
 	int			i;
 
-	i = 0;
-	if (FILL == '0' && (value[0] == '+' || value[0] == '-'))
-	{
-		counter(1);
-		ft_putchar(value[0]);
-		i = 1;
-	}
-	if (PRE == 0 && print.conv != M)
+	i = choose_start(print, value);
+	if (PRE == 0 && ((print.conv == x || print.conv == X)
+			 || (print.conv == o && !IS_SET(SHARP))))
 		return ft_add_space(PAD != -1 ? PAD : 0, ' ', print);
 	l = ft_strlen(value);
 	if (PRE > l && print.conv != M)
